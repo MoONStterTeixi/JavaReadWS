@@ -1,10 +1,13 @@
 package ws;
 
+import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
+
+
 
 public class WS {
 
@@ -12,10 +15,12 @@ public class WS {
        String JsonURL = "http://localhost/WebService/Consultas.php?format=json&code=1111&action=SelectDatos";
         System.out.println("Get Json from: " + JsonURL);
         System.out.println("-----------------------------------------------------------------");
-        System.out.println(callURL(JsonURL));
+        String JsonString = callURL(JsonURL);
+        Gson gson = new Gson();
+        ObjetoT json = gson.fromJson(JsonString, ObjetoT.class);  
+        System.out.println(json.getNum1() + "-->" + json.getNum2());
     }
     public static String callURL(String myURL) {
-		System.out.println("Requeted URL:" + myURL);
 		StringBuilder sb = new StringBuilder();
 		URLConnection urlConn = null;
 		InputStreamReader in = null;
