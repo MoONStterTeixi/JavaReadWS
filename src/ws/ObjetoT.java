@@ -1,8 +1,14 @@
 package ws;
 //Using Gson from google 2.8.0  .jar
 public class ObjetoT {
-    private String num1;
-    private String num2;
+    
+    private  String num1;
+    private  String num2;
+
+    public ObjetoT(String num1, String num2) {
+        this.num1 = num1;
+        this.num2 = num2;
+    }
 
     public String getNum1() {
         return num1;
@@ -19,12 +25,8 @@ public class ObjetoT {
     public void setNum2(String num2) {
         this.num2 = num2;
     }
-
-    public ObjetoT(String num1, String num2) {
-        this.num1 = num1;
-        this.num2 = num2;
+    @Override
+    public String toString(){
+        return num1 + "->" + num2;
     }
-    
 }
-
-    
